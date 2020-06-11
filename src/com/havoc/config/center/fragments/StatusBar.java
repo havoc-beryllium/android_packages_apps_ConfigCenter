@@ -38,7 +38,6 @@ public class StatusBar extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String STATUS_BAR_CLOCK = "status_bar_clock";
-    private static final String STATUS_BAR_LOGO = "status_bar_logo";
     private static final String SHOW_HD_ICON = "show_hd_icon";
     private static final String KEY_USE_OLD_MOBILETYPE = "use_old_mobiletype";
     private static final String NETWORK_TRAFFIC = "network_traffic_state";
@@ -105,11 +104,6 @@ public class StatusBar extends SettingsPreferenceFragment implements
                 Settings.System.STATUS_BAR_CLOCK, 1) == 1));
         mStatusBarClockShow.setOnPreferenceChangeListener(this);
     
-        mStatusBarLogo = (SystemSettingMasterSwitchPreference) findPreference(STATUS_BAR_LOGO);
-        mStatusBarLogo.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.STATUS_BAR_LOGO, 0) == 1));
-        mStatusBarLogo.setOnPreferenceChangeListener(this);
-    
         mNetworkTraffic = (SystemSettingMasterSwitchPreference) findPreference(NETWORK_TRAFFIC);
         mNetworkTraffic.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.NETWORK_TRAFFIC_STATE, 0) == 1));
@@ -127,11 +121,6 @@ public class StatusBar extends SettingsPreferenceFragment implements
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUS_BAR_CLOCK, value ? 1 : 0);
-            return true;
-		} else if (preference == mStatusBarLogo) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.STATUS_BAR_LOGO, value ? 1 : 0);
             return true;
         } else if (preference == mShowHDVolte) {
             boolean value = (Boolean) newValue;
