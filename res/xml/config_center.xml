@@ -112,12 +112,4 @@
             android:fragment="com.havoc.config.center.fragments.Misc"
             android:icon="@drawable/ic_settings_misc"/>
 
-        <!-- About -->
-        <Preference
-            android:key="about_category"
-            android:title="@string/about_title"
-            android:summary="@string/about_summary"
-            android:fragment="com.havoc.config.center.fragments.About"
-            android:icon="@drawable/ic_settings_about"/>
-
 </PreferenceScreen>
